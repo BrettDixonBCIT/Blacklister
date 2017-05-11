@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blacklister_gui.mainBlacklisterController">
+   <children>
+      <TabPane layoutX="1.0" layoutY="24.0" prefHeight="575.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="25.0" tabMaxWidth="245.0" tabMinHeight="25.0" tabMinWidth="245.0">
+        <tabs>
+          <Tab text="BitTorrent">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@javashark.css">
+                     <children>
+                        <BarChart fx:id="bitBarChart" layoutX="37.0" layoutY="9.0" legendVisible="false" prefHeight="382.0" prefWidth="728.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Label id="bt_stats" fx:id="btStats" layoutX="24.0" layoutY="431.0" prefHeight="55.0" prefWidth="336.0" style="-fx-border-color: #000; -fx-border-width: 1px;" stylesheets="@javashark.css" text="BitTorrentStats" wrapText="true" />
+                        <Label layoutX="37.0" layoutY="503.0" prefHeight="17.0" prefWidth="98.0" text="Current Pcap File:" />
+                        <ListView id="bt_devices" fx:id="btMACs" layoutX="385.0" layoutY="415.0" prefHeight="84.0" prefWidth="373.0" />
+                        <Button fx:id="addMACSBt" layoutX="388.0" layoutY="507.0" mnemonicParsing="false" onAction="#handleAddMACBt" text="Add Devices to Blacklist" />
+                        <Label fx:id="pcapStatus" layoutX="141.0" layoutY="503.0" text="None Loaded Yet!!" textFill="#f20707" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Website Blacklist">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="websites" layoutX="27.0" layoutY="77.0" prefHeight="305.0" prefWidth="243.0" />
+                        <Button fx:id="addWebsite" layoutX="33.0" layoutY="437.0" mnemonicParsing="false" onAction="#addNewWebsite" text="Add New Website" />
+                        <Label layoutX="27.0" layoutY="57.0" text="Blacklisted Websites" />
+                        <Button fx:id="addMACSWeb" layoutX="426.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleAddMACWeb" text="Add All MAC ID's to Blacklist" />
+                        <Label layoutX="35.0" layoutY="510.0" text="Current Pcap File:  " />
+                        <Label fx:id="webStats" layoutX="301.0" layoutY="76.0" prefHeight="328.0" prefWidth="461.0" style="-fx-border-color: #000;" text="Website Stats" />
+                        <TextField fx:id="newWebsite" layoutX="31.0" layoutY="403.0" prefHeight="25.0" prefWidth="213.0" promptText="Enter a New Website to Blacklist" />
+                        <Label fx:id="pcapStatus2" layoutX="142.0" layoutY="510.0" text="None Loaded Yet!!" textFill="#f20707" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Device Blacklist">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="allMacs" layoutX="40.0" layoutY="46.0" prefHeight="300.0" prefWidth="243.0" />
+                        <Label fx:id="deviceDetLabel" layoutX="337.0" layoutY="49.0" prefHeight="307.0" prefWidth="387.0" style="-fx-border-color: #000;" stylesheets="@javashark.css" text="Device Details" />
+                        <Label layoutX="45.0" layoutY="17.0" text="Device List" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar prefHeight="25.0" prefWidth="800.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="fileMenuItem" mnemonicParsing="false" onAction="#handleOpenAction" text="Load Pcap File" />
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#closeProgram" text="Exit Program" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#getHelp" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
