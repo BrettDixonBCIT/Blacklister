@@ -13,6 +13,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blacklister_gui.mainBlacklisterController">
    <children>
@@ -48,7 +49,10 @@
                         <Label layoutX="27.0" layoutY="57.0" text="Blacklisted Websites" />
                         <Button fx:id="addMACSWeb" layoutX="426.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleAddMACWeb" text="Add All MAC ID's to Blacklist" />
                         <Label layoutX="35.0" layoutY="510.0" text="Current Pcap File:  " />
-                        <Label fx:id="webStats" layoutX="301.0" layoutY="76.0" prefHeight="328.0" prefWidth="461.0" style="-fx-border-color: #000;" text="Website Stats" />
+                        <Label fx:id="webStats" layoutX="301.0" layoutY="76.0" prefHeight="328.0" prefWidth="461.0" style="-fx-border-color: #000;" text="Website Stats">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                         <TextField fx:id="newWebsite" layoutX="31.0" layoutY="403.0" prefHeight="25.0" prefWidth="213.0" promptText="Enter a New Website to Blacklist" />
                         <Label fx:id="pcapStatus2" layoutX="142.0" layoutY="510.0" text="None Loaded Yet!!" textFill="#f20707" />
                      </children></AnchorPane>
@@ -59,7 +63,10 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ListView fx:id="allMacs" layoutX="40.0" layoutY="46.0" prefHeight="300.0" prefWidth="243.0" />
-                        <Label fx:id="deviceDetLabel" layoutX="337.0" layoutY="49.0" prefHeight="307.0" prefWidth="387.0" style="-fx-border-color: #000;" stylesheets="@javashark.css" text="Device Details" />
+                        <Label fx:id="deviceDetLabel" layoutX="337.0" layoutY="49.0" prefHeight="307.0" prefWidth="387.0" style="-fx-border-color: #000;" stylesheets="@javashark.css" text="Device Details">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                         <Label layoutX="45.0" layoutY="17.0" text="Device List" />
                      </children></AnchorPane>
               </content>
